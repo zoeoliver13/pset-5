@@ -1,13 +1,21 @@
+const readlineSync = require("readline-sync");
 window.onload = function() {
     // add event listeners to respond to button clicks
+
 }
 
 /*
  * Exercise 1.
  */
-
 const sayHello = function() {
-
+let message = prompt("Message: ");
+let length = message.lenght;
+    while(!Number.isNaN(message) || length > 50 ){
+        console.log(message);
+const context = canvas.getContext('2d');
+    context.clearRect(0, 0, canvas.width, canvas.height);
+    
+     }
 };
 
 /*
@@ -15,7 +23,7 @@ const sayHello = function() {
  */
 
 const drawRectangle = function() {
-    
+
 };
 
 /*
@@ -23,7 +31,7 @@ const drawRectangle = function() {
  */
 
 const drawColoredRectangle = function() {
-    
+
 };
 
 /*
@@ -31,7 +39,7 @@ const drawColoredRectangle = function() {
  */
 
 const drawTriangle = function() {
-    
+
 };
 
 /*
@@ -39,7 +47,7 @@ const drawTriangle = function() {
  */
 
 const drawFace = function() {
-    
+
 };
 
 /*
@@ -47,5 +55,5 @@ const drawFace = function() {
  */
 
 const drawPyramid = function() {
-    
+
 };
