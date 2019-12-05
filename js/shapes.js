@@ -24,15 +24,24 @@ window.onload = function() {
 /*
  * Exercise 1.
  */
-const sayHello = function() {
-  let message = document.getElementById('canvas');
-  message.font = '48px sans-serif';
-  message = window.prompt("Message: ", 30, 70);
-  message.clearRect(0, 0, canvas.width, canvas.height);
+ const sayHello = function() {
+  let draw = document.getElementById("student-canvas-1");
+  let content = draw.getContext("2d");
+  content.clearRect(0, 0, draw.width, draw.height);
 
-
-       // write your exercise 1 code here
-};
+  let message = "";
+  let valid = true;
+    while(valid ==true){
+      message = window.prompt("Message: ", "");
+      if(message.length > 50){
+        alert("Try keeping your message under 50 characters :D");
+      }else{
+        valid = false;
+      }
+    }
+    content.font = "48px sans-serif";
+    content = strokeText(message, 30, 70);
+    };
 
 /*
  * Exercise 2.
