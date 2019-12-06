@@ -19,6 +19,7 @@ window.onload = function() {
     // equivalent set of six event listeners for your solutions. the first one is done for you.
 
     document.getElementById("hello").onclick = sayHello;
+    document.getElementById("colored-rectangle").onclick = drawColoredRectangle;
 }
 
 /*
@@ -28,7 +29,6 @@ window.onload = function() {
   let draw = document.getElementById("student-canvas-1");
   let content = draw.getContext("2d");
   content.clearRect(0, 0, draw.width, draw.height);
-
   let message = "";
   let valid = true;
     while(valid ==true){
@@ -40,7 +40,7 @@ window.onload = function() {
       }
     }
     content.font = "48px sans-serif";
-    content = strokeText(message, 30, 70);
+    content.strokeText(message, 30, 70, 940);
     };
 
 /*
@@ -56,7 +56,43 @@ const drawRectangle = function() {
  */
 
 const drawColoredRectangle = function() {
-    // write your exercise 3 code here
+  let draw = document.getElementById("student-canvas-3");
+  let content = draw.getContext("2d");
+    content.clearRect(0, 0, draw.width, draw.height);
+
+  let color = "";
+  let works = true;
+    while(works == true){
+      color = window.prompt("Enter a color: ")
+    }
+      switch(color){
+        case "black":
+          content.fillStyle = "black";
+          break;
+        case "blue":
+          content.fillStyle = "blue";
+          break;
+        case "green":
+          content.fillStyle = "green";
+          break;
+        case "orange":
+          content.fillStyle = "orange";
+          break;
+        case "purple":
+          content.fillStyle = "purple";
+          break;
+        case "red":
+          content.fillStyle = "red";
+          break;
+        case "yellow":
+          content.fillStyle = "yellow";
+          break;
+    }
+  }
+
+      content.moveTo(10,10);
+      content.rect(100,100,50,50);
+      content.stroke();
 };
 
 /*
