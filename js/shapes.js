@@ -31,22 +31,18 @@ window.onload = function() {
  */
 
  const sayHello = function() {
-    const text = document.getElementById("student-canvas-1");
-    const ctx = text.getContext("2d");
+    let text = document.getElementById("student-canvas-1");
+    let ctx = text.getContext("2d");
     ctx.clearRect(0, 0, 1024, 128);
-    let message = "";
-    let valid = true;
-      while(valid ==true){
-        message = window.prompt("Message: ", "");
-        if(message.length > 50){
+    let message = prompt("Message: ")
+
+        while(message.length > 50){
           alert("Try keeping your message under 50 characters :D");
-        }else{
-          valid = false;
-        }
+          message = prompt("Message: ");
       }
       ctx.font = "48px sans-serif";
       ctx.strokeText(message, 30, 70, 994);
-  };
+ };
 
  /*
   * Exercise 2.
@@ -56,7 +52,6 @@ window.onload = function() {
     let rectangle = document.getElementById("student-canvas-2");
     let ctx = rectangle.getContext("2d");
     ctx.clearRect(0, 0, 1024, 512 );
-
     let x = prompt("X: ");
     let y = prompt("Y: ");
     let width = prompt("Width: ");
@@ -72,9 +67,10 @@ window.onload = function() {
        alert("Make sure your width is > 1 and < 1024.")
       }else if (height < 1 || height > 512) {
       alert("Make sure your height is > 1 and < 512.")
+      }
+    if (!(x == null)! && !(y == null)&& !(height == null) && (width == null)) {
       ctx.rect(x, y, width, height);
       ctx.stroke();
-      }
     }
   };
 
@@ -82,7 +78,7 @@ window.onload = function() {
  /*
   * Exercise 3.
   */
- const drawColoredRectangle = function() {
+ /*const drawColoredRectangle = function() {
     let coloredRectangle = document.getElementById("student-canvas-3");
     let ctx = coloredRectangle.getContext("2d");
       ctx.clearRect(0, 0, 1024, 128);
@@ -139,7 +135,7 @@ window.onload = function() {
   * Exercise 4.
   */
 
-const drawTriangle = function() {
+/*const drawTriangle = function() {
     let triangle = document.getElementById("student-canvas-4");
     let ctx = triangle.getContext("2d");
       ctx.clearRect(0, 0, 1024, 512);
@@ -170,7 +166,7 @@ const drawTriangle = function() {
   * Exercise 5.
   */
 
- const drawFace = function() {
+ /*const drawFace = function() {
    let face = document.getElementById('student-canvas-5');
    let ctx = face.getContext('2d');
    ctx.clearRect(0, 0, 1024, 512);
