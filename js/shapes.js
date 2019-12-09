@@ -31,9 +31,9 @@ window.onload = function() {
  */
 
  const sayHello = function() {
-    let draw = document.getElementById("student-canvas-1");
-    let ctx = draw.getContext("2d");
-    ctx.clearRect(0, 0, draw.width, draw.height);
+    const text = document.getElementById("student-canvas-1");
+    const ctx = text.getContext("2d");
+    ctx.clearRect(0, 0, 1024, 128);
     let message = "";
     let valid = true;
       while(valid ==true){
@@ -53,15 +53,16 @@ window.onload = function() {
   */
 
   const drawRectangle = function() {
-    let draw = document.getElementById("student-canvas-2");
-    let ctx = draw.getContext("2d");
-    ctx.clearRect(0, 0, draw.width, draw.height);
+    let rectangle = document.getElementById("student-canvas-2");
+    let ctx = rectangle.getContext("2d");
+    ctx.clearRect(0, 0, 1024, 512 );
+
     let x = prompt("X: ");
     let y = prompt("Y: ");
     let width = prompt("Width: ");
     let height = prompt("Height: ");
     while( x < 1 || x > 1024 || Number.isNaN(x) || Number.isNaN(y) || height < 1  y < 1 || y > 512 || width > 1024 || width < 1 || width > 1024 || width < 1 ||  isNaN(width) || height > 512 ||  isNaN(height)) {
-      if (isNaN(width) || isNaN(height) || isNaN(x) || isNaN(y)) {
+      if (Number.isNaN(width) || Number.isNaN(height) || Number.isNaN(x) || Number.isNaN(y)) {
         alert("Make sure you're only entering numbers.")
       }else if (x < 1 || x > 1024) {
        alert("Make sure your x is > 1 and < 1024.")
@@ -82,9 +83,9 @@ window.onload = function() {
   * Exercise 3.
   */
  const drawColoredRectangle = function() {
-    let draw = document.getElementById("student-canvas-3");
-    let ctx = draw.getContext("2d");
-      ctx.clearRect(0, 0, draw.width, draw.height);
+    let coloredRectangle = document.getElementById("student-canvas-3");
+    let ctx = coloredRectangle.getContext("2d");
+      ctx.clearRect(0, 0, 1024, 128);
 
     let color = "";
     if(color==null){
@@ -138,15 +139,15 @@ window.onload = function() {
   * Exercise 4.
   */
 
- const drawTriangle = function() {
-    let draw = document.getElementById("student-canvas-4");
-    let ctx = draw.getContext("2d");
-      ctx.clearRect(0, 0, draw.width, draw.height);
+const drawTriangle = function() {
+    let triangle = document.getElementById("student-canvas-4");
+    let ctx = triangle.getContext("2d");
+      ctx.clearRect(0, 0, 1024, 512);
     let short = Number(prompt("Height: "));
     let other = Number(prompt("Base: "));
     let long = Number(prompt("Hypotenuse: "));
 
-  while (short*short + other*other != long*long || Number.isNaN(short) || Number.isNaN(other) || Number.isNaN(long) || short > 1024 || other > 1024 || long > 1024))
+  while (short*short + other*other != long*long || Number.isNaN(short) || Number.isNaN(other) || Number.isNaN(long) || short > 1024 || other > 1024 || long > 1024)){
         if (short*short + other*other != long*long) {
           alert("This isn't a right triangle.")
         }else if(short > 1024 || other > 1024 || long > 1024) {
@@ -154,6 +155,7 @@ window.onload = function() {
         }else if((Number.isNaN(short) || Number.isNaN(other) || Number.isNaN(long)) {
         alert("Make sure all of your sides are numbers.")
       }
+    }
      short += 25
      other += 25
      ctx.beginPath();
@@ -169,16 +171,16 @@ window.onload = function() {
   */
 
  const drawFace = function() {
-   let draw = document.getElementById('student-canvas-5');
-   let ctx = canvas.getContext('2d');
-   ctx.clearRect(0, 0, canvas.width, canvas.height);
-   let x = draw.width/2;
-   let y = draw.height/2;
+   let face = document.getElementById('student-canvas-5');
+   let ctx = face.getContext('2d');
+   ctx.clearRect(0, 0, 1024, 512);
+   let x = face.width/2;
+   let y = face.height/2;
    let radius = (prompt("Radius: "))
      if (radius == null) {
        break;
-   while (radius > 256 || Number.isNaN(radius) || radius < 32)
      }
+   while (radius > 256 || Number.isNaN(radius) || radius < 32){
      if (radius > 256) {
        alert("Out of bounds. ")
      }
@@ -197,7 +199,9 @@ window.onload = function() {
        ctx.moveTo(x+radius*.7, y);
        ctx.arc(x, y, radius*.7, 0, Math.PI);
        ctx.stroke();
-      };
+     }
+   }
+};
 
  /*
   * Exercise 6 (extra credit).
