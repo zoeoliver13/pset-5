@@ -34,16 +34,14 @@ window.onload = function() {
     let text = document.getElementById("student-canvas-1");
     let ctx = text.getContext("2d");
     ctx.clearRect(0, 0, 1024, 128);
-    let message = prompt("Message: ");
-    let length = message.length;
-        while(length > 50 ){
+    let message = prompt("Message: ")
+
+        while(message.length > 50){
           alert("Try keeping your message under 50 characters :D");
           message = prompt("Message: ");
       }
-      if(!message == null){
       ctx.font = "48px sans-serif";
       ctx.strokeText(message, 30, 70, 994);
-    }
  };
 
  /*
@@ -58,20 +56,19 @@ window.onload = function() {
     let y = prompt("Y: ");
     let width = prompt("Width: ");
     let height = prompt("Height: ");
-    while( x < 1 || x > 1024 || Number.isNaN(x) || Number.isNaN(y) || height < 1  || y < 1 || y > 512 || width > 1024 || width < 1 || width > 1024 || width < 1 ||  isNaN(width) || height > 512 ||  isNaN(height)) {
+    while( x < 1 || x > 1024 || Number.isNaN(x) || Number.isNaN(y) || height < 1  y < 1 || y > 512 || width > 1024 || width < 1 || width > 1024 || width < 1 ||  isNaN(width) || height > 512 ||  isNaN(height)) {
       if (Number.isNaN(width) || Number.isNaN(height) || Number.isNaN(x) || Number.isNaN(y)) {
         alert("Make sure you're only entering numbers.")
-      } if (x < 1 || x > 1024) {
+      }else if (x < 1 || x > 1024) {
        alert("Make sure your x is > 1 and < 1024.")
-      } if (y < 1 || y > 512) {
+      }else if (y < 1 || y > 512) {
        alert("Make sure your y is > 1 and < 512.")
-      } if (width < 1 || width > 1024) {
+      }else if (width < 1 || width > 1024) {
        alert("Make sure your width is > 1 and < 1024.")
-      } if (height < 1 || height > 512) {
+      }else if (height < 1 || height > 512) {
       alert("Make sure your height is > 1 and < 512.")
       }
-    }
-    if (!(x == null) && !(y == null)&& !(height == null) && (width == null)) {
+    if (!(x == null)! && !(y == null)&& !(height == null) && (width == null)) {
       ctx.rect(x, y, width, height);
       ctx.stroke();
     }
@@ -81,13 +78,22 @@ window.onload = function() {
  /*
   * Exercise 3.
   */
-const drawColoredRectangle = function() {
+ const drawColoredRectangle = function() {
     let coloredRectangle = document.getElementById("student-canvas-3");
     let ctx = coloredRectangle.getContext("2d");
+      ctx.clearRect(0, 0, 1024, 128);
+
+    let color = "";
+    if(color==null){
+      break;
+    }
+    let works = true;
+      while(works == true){
         color = window.prompt("Enter a color: ");
         color = color.toLowerCase();
         color = color.trim();
-      switch(color){
+      }
+        switch(color){
           case "black":
             ctx.fillStyle = "black";
             works = false;
