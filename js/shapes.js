@@ -30,16 +30,19 @@ window.onload = function() {
  * Exercise 1.
  */
 
- const sayHello = function() {
-    let text = document.getElementById("student-canvas-1");
-    let ctx = text.getContext("2d");
+const sayHello = function() {
+    let canvas = document.getElementById("student-canvas-1");
+    let ctx = canvas.getContext("2d");
     ctx.clearRect(0, 0, 1024, 128);
     let message = prompt("Message: ")
-
         while(message.length > 50){
           alert("Try keeping your message under 50 characters :D");
           message = prompt("Message: ");
       }
+      do{
+      break;
+      if(message = null);
+    }
       ctx.font = "48px sans-serif";
       ctx.strokeText(message, 30, 70, 994);
  };
@@ -47,90 +50,113 @@ window.onload = function() {
  /*
   * Exercise 2.
   */
-
+//FIX THIS!!
   const drawRectangle = function() {
-    let rectangle = document.getElementById("student-canvas-2");
-    let ctx = rectangle.getContext("2d");
-    ctx.clearRect(0, 0, 1024, 512 );
-    let x = prompt("X: ");
-    let y = prompt("Y: ");
-    let width = prompt("Width: ");
-    let height = prompt("Height: ");
-    while( x < 1 || x > 1024 || Number.isNaN(x) || Number.isNaN(y) || height < 1  y < 1 || y > 512 || width > 1024 || width < 1 || width > 1024 || width < 1 ||  isNaN(width) || height > 512 ||  isNaN(height)) {
-      if (Number.isNaN(width) || Number.isNaN(height) || Number.isNaN(x) || Number.isNaN(y)) {
-        alert("Make sure you're only entering numbers.")
-      }else if (x < 1 || x > 1024) {
-       alert("Make sure your x is > 1 and < 1024.")
-      }else if (y < 1 || y > 512) {
-       alert("Make sure your y is > 1 and < 512.")
-      }else if (width < 1 || width > 1024) {
-       alert("Make sure your width is > 1 and < 1024.")
-      }else if (height < 1 || height > 512) {
-      alert("Make sure your height is > 1 and < 512.")
-      }
-    if (!(x == null)! && !(y == null)&& !(height == null) && (width == null)) {
-      ctx.rect(x, y, width, height);
-      ctx.stroke();
+  const canvas = document.getElementById('student-canvas-2');
+  const ctx = canvas.getContext('2d');
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  let x = 0;
+  let y = 0;
+  let width = 0;
+  let height = 0;
+  do {
+    let x = prompt("X: ")
+    let y = prompt("Y: ")
+    let width = prompt("Width: ")
+    let height = prompt("Height: ")
+    if (x == null || y == null || width == null || height == null) {
+      break;
     }
-  };
+    if (x > 1024 || x < 1) {
+      alert("Keep your x-coordinate > 1 and < 1024.");
+    }
+    if (height > 512 || height < 1) {
+      alert("Keep your y-coordinate > 1 and < 512.");
+    }
+    if (x < 1 || x > 1024) {
+      alert("Keep your width > 1 and < 1024.");
+    }
+    if (y < 1 || y > 512) {
+      alert("Keep your y-coordinate > 1 and < 512.");
+    }
+    if (x + width > 1024 || y + height > 512) {
+      alert("Your rectangle is out of bounds.")
+    }
+    if (Number.isNaN(x) ||  Number.isNaN(y)|| Number.isNaN(width) || Number.isNaN(height)) {
+      alert("Make sure all of your sides are numbers.");
+    }
+  }while( x < 1 || x > 1024 || Number.isNaN(x) || Number.isNaN(y) || height < 1 || y < 1 || y > 512 || width > 1024 || width < 1 || width > 1024 || width < 1 ||  Number.isNaN(width) || height > 512 ||  Number.isNaN(height))
+
+  if (!(width == null) && !(height == null) && !(x == null) && !(y == null)) {
+    ctx.beginPath();
+    ctx.rect(x, y, width, height);
+    ctx.closePath();
+    ctx.stroke();
+  }
+};
+
 
 
  /*
   * Exercise 3.
   */
- const drawColoredRectangle = function() {
-    let coloredRectangle = document.getElementById("student-canvas-3");
-    let ctx = coloredRectangle.getContext("2d");
-      ctx.clearRect(0, 0, 1024, 128);
-
-    let color = "";
-    if(color==null){
-      break;
+const drawColoredRectangle = function() {
+    let canvas = document.getElementById("student-canvas-3");
+    let ctx = canvas.getContext("2d");
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    let go = true;
+    let color = null;
+    while (go == true){
+      color = window.prompt("Color: ");
+      color = color.toLowerCase();
+      color = color.trim();
+      switch (color){
+        case "black":
+          ctx.fillStyle = "black";
+          go = false;
+          break;
+        case "blue":
+          ctx.fillStyle = "blue";
+          go = false;
+          break;
+        case "green":
+          ctx.fillStyle = "green";
+          go = false;
+          break;
+        case "orange":
+          ctx.fillStyle = "orange";
+          go = false;
+          break;
+        case "purple":
+          ctx.fillStyle = "purple";
+          go = false;
+          break;
+        case "red":
+          ctx.fillStyle = "red";
+          go = false;
+          break;
+        case "yellow":
+          ctx.fillStyle = "yellow";
+          go = false;
+          break;
+        case null:
+          go = false;
+          break;
+        default:
+          alert("Try another color.");
+          break;
+      }
     }
-    let works = true;
-      while(works == true){
-        color = window.prompt("Enter a color: ");
-        color = color.toLowerCase();
-        color = color.trim();
-      }
-        switch(color){
-          case "black":
-            ctx.fillStyle = "black";
-            works = false;
-            break;
-          case "blue":
-            ctx.fillStyle = "blue";
-            works = false;
-            break;
-          case "green":
-            ctx.fillStyle = "green";
-            works = false;
-            break;
-          case "orange":
-            ctx.fillStyle = "orange";
-            works = false;
-            break;
-          case "purple":
-            ctx.fillStyle = "purple";
-            works = false;
-            break;
-          case "red":
-            ctx.fillStyle = "red";
-            works = false;
-            break;
-          case "yellow":
-            ctx.fillStyle = "yellow";
-            works = false;
-            break;
-          default:
-            alert("Try another color. ");
-            works = false;
-            break;
-      }
-        ctx.moveTo(10,10);
-        ctx.rect(100,100,50,50);
-        ctx.stroke();
+    if(color != null){
+      ctx.beginPath();
+      ctx.rect(10, 10, 100, 50);
+      ctx.fill();
+    }
   };
+
+
+
+
  /*
   * Exercise 4.
   */
@@ -142,23 +168,29 @@ const drawTriangle = function() {
     let short = Number(prompt("Height: "));
     let other = Number(prompt("Base: "));
     let long = Number(prompt("Hypotenuse: "));
-  while (short*short + other*other != long*long || Number.isNaN(short) || Number.isNaN(other) || Number.isNaN(long) || short > 1024 || other > 1024 || long > 1024){
+    let hypot = Math.max(short, other, long)
+    let height = Math.min (sbort, other, long)
+    let base = Math.sqrt(hypot*hypot - height*height)
+
+  while (height*height + base*base != hypot*hypot || Number.isNaN(height) || Number.isNaN(base) || Number.isNaN(hypot) || base > 1024 || height > 1024 || hypot > 1024){
         if (short*short + other*other != long*long) {
           alert("This isn't a right triangle.");
-        }else if(short > 1024 || other > 1024 || long > 1024) {
+        }else if(height > 1024 || base > 1024 || hypot > 1024) {
         alert("Out of bounds.");
-        }else if(Number.isNaN(short) || Number.isNaN(other) || Number.isNaN(long)){
+      }else if(Number.isNaN(height) || Number.isNaN(base) || Number.isNaN(hypot)){
         alert("Make sure all of your sides are numbers.");
       }
     }
      short += 25
      other += 25
+     ctx.stroke();
      ctx.beginPath();
      ctx.moveTo(25, 25);
-     ctx.lineTo(25, short);
-     ctx.lineTo(other, short);
      ctx.lineTo(25, 25);
-     ctx.stroke();
+     ctx.lineTo(25, base);
+     ctx.lineTo(base, height);
+
+
   };
  /*
   * Exercise 5.
@@ -168,33 +200,36 @@ const drawFace = function() {
    let face = document.getElementById('student-canvas-5');
    let ctx = face.getContext('2d');
    ctx.clearRect(0, 0, 1024, 512);
-   let x = face.width/2;
-   let y = face.height/2;
+   let width = face.width/2;
+   let height = face.height/2;
    let radius = (prompt("Radius: "))
      if (radius == null) {
        break;
      }
-   while (radius > 256 || Number.isNaN(radius) || radius < 32){
-     if (radius > 256) {
-       alert("Out of bounds. ")
-     }
-     else if (Number.isNaN(radius)) {
-       alert("Make sure your radius is a number")
-     }
-     else if (radius < 32) {
-       alert("Your radius has to be < 32.")
-     }else{
+  while (radius > 256 || isNaN(radius) || radius < 32){
+          if (radius < 32) {
+            alert("Your radius must be at least 32.")
+          }
+          if (isNaN(radius)) {
+            alert("Your radius is not a number.")
+          }
+          if (radius > 256) {
+            alert("Your smiley face won't fit on the canvas.")
+          }
+        }
+
        ctx.beginPath();
-       ctx.arc(x, y, radius, 0, 2*Math.PI);
-       ctx.moveTo(x - radius*.25, y - radius*.4);
-       ctx.arc(x - radius*.4, y - radius*.4, radius*.15, 0, 2*Math.PI);
-       ctx.moveTo(x+radius*.55, y - radius*.4);
-       ctx.arc(x + radius*.4, y - radius*.4, radius*.15, 0, 2*Math.PI);
-       ctx.moveTo(x+radius*.7, y);
-       ctx.arc(x, y, radius*.7, 0, Math.PI);
-       ctx.stroke();
-     }
-   }
+          ctx.arc(width, height, radius, 0, 2*Math.PI);
+          ctx.moveTo(width - radius*.25, height - radius*.4);
+          ctx.arc(width - radius*.4, height - radius*.4, radius*.15, 0, 2*Math.PI);
+          ctx.moveTo(width+radius*.55, height - radius*.4);
+          ctx.arc(width + radius*.4, height - radius*.4, radius*.15, 0, 2*Math.PI);
+          ctx.moveTo(width+radius*.7, height);
+          ctx.arc(width, height, radius*.7, 0, Math.PI);
+          ctx.stroke();
+
+   };
+
 
 
  /*
