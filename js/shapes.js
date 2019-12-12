@@ -23,7 +23,6 @@ window.onload = function() {
     document.getElementById("colored_rectangle").onclick = drawColoredRectangle;
     document.getElementById("triangle").onclick = drawTriangle;
     document.getElementById("smile").onclick = drawFace;
-  //  document.getElementById("pyramid").onclick = drawPyramid;
 }
 
 /*
@@ -49,47 +48,48 @@ const sayHello = function() {
  /*
   * Exercise 2.
   */
-const drawRectangle = function() {
-  const canvas = document.getElementById('student-canvas-2');
-  const ctx = canvas.getContext('2d');
-    ctx.clearRect(0, 0, 1024, 512);
-  let x = prompt("X: ");
-  let y = prompt("Y: ");
-  let width = prompt("Width: ");
-  let height = prompt("Height: ");
+  const drawRectangle = function() {
+    const canvas = document.getElementById('student-canvas-2');
+    const ctx = canvas.getContext('2d');
+      ctx.clearRect(0, 0, 1024, 512);
+    let x = prompt("X: ");
+    let y = prompt("Y: ");
+    let width = prompt("Width: ");
+    let height = prompt("Height: ");
 
-  do{
-    if(x == null || y == null || width == null || height == null){
-          break;
-        }
-    if (x > 1024 || x < 1) {
-      alert("Keep your x-coordinate > 1 and < 1024.");
-    }
-    if (y > 512 || y < 1) {
-      alert("Keep your y-coordinate > 1 and < 512.");
-    }
-    if (width < 1 || width > 1024) {
-      alert("Keep your width > 1 and < 1024.");
-    }
-    if (height < 1 || height > 512) {
-      alert("Keep your height > 1 and < 512.");
-    }
-    if (Number(x) + Number(width) > 1024 || Number(y) + Number(height) > 512) {
-      alert("Your rectangle is out of bounds.");
-    }
-    if (Number.isNaN(x) ||  Number.isNaN(y)|| Number.isNaN(width) || Number.isNaN(height)) {
-      alert("Make sure all of your sides are numbers.");
-    }
-  } while(x < 1 || x > 1024 || Number.isNaN(x) || Number.isNaN(y) || height < 1 || y < 1 || y > 512 || width > 1024 || width < 1 || width > 1024 || width < 1 ||  Number.isNaN(width) || height > 512 ||  Number.isNaN(height))
+    do{
+      if(x == null || y == null || width == null || height == null){
+            break;
+          }
+      if (x > 1024 || x < 1) {
+        alert("Keep your x-coordinate > 1 and < 1024.");
+      }
+      if (y > 512 || y < 1) {
+        alert("Keep your y-coordinate > 1 and < 512.");
+      }
+      if (width < 1 || width > 1024) {
+        alert("Keep your width > 1 and < 1024.");
+      }
+      if (height < 1 || height > 512) {
+        alert("Keep your height > 1 and < 512.");
+      }
+      if (Number(x) + Number(width) > 1024 || Number(y) + Number(height) > 512) {
+        alert("Your rectangle is out of bounds.");
+      }
+      if (Number.isNaN(x) ||  Number.isNaN(y)|| Number.isNaN(width) || Number.isNaN(height)) {
+        alert("Make sure all of your sides are numbers.");
+      }
+    } while(x < 1 || x > 1024 || Number.isNaN(x) || Number.isNaN(y) || height < 1 || y < 1 || y > 512 || width > 1024 || width < 1 || width > 1024 || width < 1 ||  Number.isNaN(width) || height > 512 ||  Number.isNaN(height))
 
 
-  if (!(width == null) && !(height == null) && !(x == null) && !(y == null)) {
-    ctx.beginPath();
-    ctx.rect(x, y, width, height);
-    ctx.closePath();
-    ctx.stroke();
-  }
-};
+    if (!(width == null) && !(height == null) && !(x == null) && !(y == null)) {
+      ctx.beginPath();
+      ctx.rect(x, y, width, height);
+      ctx.closePath();
+      ctx.stroke();
+    }
+  };
+
 
 
 
@@ -156,45 +156,43 @@ const drawColoredRectangle = function() {
   * Exercise 4.
   */
   const drawTriangle = function() {
-  let canvas = document.getElementById("student-canvas-4");
-  let ctx = canvas.getContext('2d');
-  ctx.clearRect(0, 0, 1024, 512);
+    let canvas = document.getElementById("student-canvas-4");
+    let ctx = canvas.getContext('2d');
+    ctx.clearRect(0, 0, 1024, 512);
 
-  let firstSide = prompt("Side 1: ");
-  let secondSide = prompt("Side 2: ");
-  let thirdSide = prompt("Side 3: ");
-  let height = Math.min(firstSide , secondSide , thirdSide);
-  let hypot = Math.max(firstSide , secondSide , thirdSide);
-  let base = Math.sqrt((hypot * hypot) - (height * height));
+    let firstSide = prompt("Side 1: ");
+    let secondSide = prompt("Side 2: ");
+    let thirdSide = prompt("Side 3: ");
+    let height = Math.min(firstSide , secondSide , thirdSide);
+    let hypot = Math.max(firstSide , secondSide , thirdSide);
+    let base = Math.sqrt((hypot * hypot) - (height * height));
 
-  while ( Number.isNaN(firstSide) ||  Number.isNaN(secondSide) || Number.isNaN(thirdSide) || firstSide > 1024 ||  secondSide > 1024 || thirdSide > 1024 || firstSide < 1 || secondSide < 1 || thirdSide< 1){
-      if (firstSide == null || secondSide == null || thirdSide == null) {
-       ctx.clearRect(0, 0, 1024, 512);
-        return;
+    while ( Number.isNaN(firstSide) ||  Number.isNaN(secondSide) || Number.isNaN(thirdSide) || firstSide > 1024 ||  secondSide > 1024 || thirdSide > 1024 || firstSide < 1 || secondSide < 1 || thirdSide< 1){
+        if (firstSide == null || secondSide == null || thirdSide == null) {
+         break;
+        }
+        if (Number.isNaN(firstSide) || Number.isNaN(secondSide) || Number.isNaN(thirdSide)){
+          alert("Make sure all of your sides are numbers.")
+        } if(base*base + height * height != hypot *hypot) {
+          alert("This is not a right triangle.")
+        }
+        firstSide = prompt("Side 1: ");
+        secondSide = prompt("Side 2: ");
+        thirdSide = prompt("Side 3: ");
       }
-      if (Number.isNaN(firstSide) || Number.isNaN(secondSide) || Number.isNaN(thirdSide)){
-        alert("Make sure all of your sides are numbers.")
-      } else {
-        alert("Invalid.")
-      }
-      firstSide = prompt("Side 1: ");
-      secondSide = prompt("Side 2: ");
-      thirdSide = prompt("Side 3: ");
+    if ( base > 1024 || height > 512 || hypot > 1144 ){
+      alert("Your triangle is out of bounds")
     }
-  if ( base > 1024 || height > 512 || hypot > 1144 ){
-    alert("Your triangle is out of bounds")
-  }
-  if ((height ** 2) + (base ** 2) == (hypot ** 2)) {
-    ctx.beginPath();
-    ctx.moveTo(25, 25);
-    ctx.lineTo(25, height + 25);
-    ctx.lineTo(base + 25, height + 25);
-    ctx.closePath();
-    ctx.stroke();
-  } else {
-    alert("This is not a right triangle.")
-  }
-};
+    if ((height * height) + (base * base) == (hypot *hypot)) {
+      ctx.beginPath();
+      ctx.moveTo(25, 25);
+      ctx.lineTo(25, height + 25);
+      ctx.lineTo(base + 25, height + 25);
+      ctx.closePath();
+      ctx.stroke();
+    }
+  };
+
 
  /*
   * Exercise 5.
@@ -209,15 +207,19 @@ const drawFace = function() {
          break;
        }
 
-  while (radius > 256 || Number.isNaN(radius) || radius < 32){
+  while (radius > 265 || Number.isNaN(radius) || radius < 32){
       if (radius < 32) {
           alert("Make sure your radius is > 32")
+          radius = (prompt("Radius: "))
+          break;
             }
       if (Number.isNaN(radius)) {
                alert("Make sure your radius is a number.")
+               radius = (prompt("Radius: "))
              }
-      if (radius > 256) {
+      if (radius > canvas.width/2) {
                alert("Your smiley face is out of bounds.")
+
         }
     }
 
@@ -225,26 +227,23 @@ const drawFace = function() {
      let mouth = 0.7 * radius;
 
      ctx.beginPath();
-     ctx.arc(512, 256, radius, 0, 2 * Math.PI);
+     ctx.arc(512, 265, radius, 0, 2 * Math.PI);
      ctx.stroke();
      ctx.closePath();
      ctx.beginPath();
-     ctx.arc(512, 256, mouth, 0, Math.PI);
+     ctx.arc(512, 265, mouth, 0, Math.PI);
      ctx.stroke();
      ctx.closePath();
      ctx.beginPath();
-     ctx.arc(512 - 0.4 * radius, 256 - 0.4 * radius, eyes, 0, 2 * Math.PI);
+     ctx.arc(512 - 0.4 * radius, 265 - 0.4 * radius, eyes, 0, 2 * Math.PI);
      ctx.stroke();
      ctx.closePath();
      ctx.beginPath();
-     ctx.arc(512 + 0.4 * radius, 256 - 0.4* radius, eyes, 0, 2 * Math.PI);
+     ctx.arc(512 + 0.4 * radius, 265 - 0.4* radius, eyes, 0, 2 * Math.PI);
      ctx.stroke();
      ctx.closePath();
    };
 
 
- /*
-  * Exercise 6 (extra credit).
-  */
-// }
+
 // };
