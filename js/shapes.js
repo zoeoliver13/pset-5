@@ -200,59 +200,29 @@ const drawColoredRectangle = function() {
   * Exercise 5.
   */
 
-/*const drawFace = function() {
-   let face = document.getElementById('student-canvas-5');
-   let ctx = face.getContext('2d');
-   ctx.clearRect(0, 0, 1024, 512);
-   let width = face.width/2;
-   let height = face.height/2;
-   let radius = (prompt("Radius: "))
-     if (radius == null) {
-       break;
-     }
-  while (radius > 256 || Number.isNaN(radius) || radius < 32){
-          if (radius < 32) {
-            alert("Your radius must be at least 32.")
-          }
-          if (Number.isNaN(radius)) {
-            alert("Your radius is not a number.")
-          }
-          if (radius > 256) {
-            alert("Your smiley face won't fit on the canvas.")
-          }
-        }
-
-       ctx.beginPath();
-          ctx.arc(width, height, radius, 0, 2*Math.PI);
-          ctx.moveTo(width - radius*.25, height - radius*.4);
-          ctx.arc(width - radius*.4, height - radius*.4, radius*.15, 0, 2*Math.PI);
-          ctx.moveTo(width+radius*.55, height - radius*.4);
-          ctx.arc(width + radius*.4, height - radius*.4, radius*.15, 0, 2*Math.PI);
-          ctx.moveTo(width+radius*.7, height);
-          ctx.arc(width, height, radius*.7, 0, Math.PI);
-          ctx.stroke();
-
-   };
- */const drawFace = function() {
+const drawFace = function() {
      const canvas = document.getElementById('student-canvas-5');
      const ctx = canvas.getContext('2d');
      ctx.clearRect(0, 0, canvas.width, canvas.height);
+     let radius = (prompt("Radius: "))
+       while (radius == null) {
+         break;
+       }
 
   while (radius > 256 || Number.isNaN(radius) || radius < 32){
       if (radius < 32) {
-          alert("Your radius must be at least 32.")
+          alert("Make sure your radius is > 32")
             }
       if (Number.isNaN(radius)) {
-               alert("Your radius is not a number.")
+               alert("Make sure your radius is a number.")
              }
       if (radius > 256) {
-               alert("Your smiley face won't fit on the canvas.")
+               alert("Your smiley face is out of bounds.")
         }
     }
 
-     let eyes = 0.15 * radius
-     let mouth = 0.7 * radius
-
+     let eyes = 0.15 * radius;
+     let mouth = 0.7 * radius;
 
      ctx.beginPath();
      ctx.arc(512, 256, radius, 0, 2 * Math.PI);
