@@ -169,16 +169,17 @@ const drawColoredRectangle = function() {
 
   while ( Number.isNaN(firstSide) ||  Number.isNaN(secondSide) || Number.isNaN(thirdSide) || firstSide > 1024 ||  secondSide > 1024 || thirdSide > 1024 || firstSide < 1 || secondSide < 1 || thirdSide< 1){
       if (firstSide == null || secondSide == null || thirdSide == null) {
-        break;
+       ctx.clearRect(0, 0, 1024, 512);
+        return;
       }
       if (Number.isNaN(firstSide) || Number.isNaN(secondSide) || Number.isNaN(thirdSide)){
         alert("Make sure all of your sides are numbers.")
       } else {
         alert("Invalid.")
       }
-      sideOne = prompt("Side 1: ");
-      sideTwo = prompt("Side 2: ");
-      sideThree = prompt("Side 3: ");
+      firstSide = prompt("Side 1: ");
+      secondSide = prompt("Side 2: ");
+      thirdSide = prompt("Side 3: ");
     }
   if ( base > 1024 || height > 512 || hypot > 1144 ){
     alert("Your triangle is out of bounds")
@@ -193,6 +194,7 @@ const drawColoredRectangle = function() {
   } else {
     alert("This is not a right triangle.")
   }
+};
 
  /*
   * Exercise 5.
